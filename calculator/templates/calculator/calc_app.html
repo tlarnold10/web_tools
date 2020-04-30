@@ -1,0 +1,37 @@
+{% extends parent_template|default:"base.html" %}
+
+{% block title %}
+{{ block.super }} - Create Emotion
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row" style="padding-top: 25px;">
+        <input class="form-control">
+    </div>
+    <div class="row" style="padding-top: 25px;">
+        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">7</button>
+        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">8</button>
+        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">9</button>
+        <button class="col btn btn-primary btn-lg" style="margin: 5px;">x</button>
+    </div>
+    <div class="row" style="padding-top: 25px;">
+        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">4</button>
+        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">5</button>
+        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">6</button>
+        <button class="col btn btn-primary btn-lg" style="margin: 5px;">-</button>
+    </div>
+    <div class="row" style="padding-top: 25px;">
+        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">1</button>
+        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">2</button>
+        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">3</button>
+        <button class="col btn btn-primary btn-lg" style="margin: 5px;">+</button>
+    </div>
+    <div class="row" style="padding-top : 25px;">
+        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">,</button>
+        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">0</button>
+        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">.</button>
+        <button class="col btn btn-primary btn-lg" style="margin: 5px;">=</button>
+    </div>
+</div>
+{% endblock %}

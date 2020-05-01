@@ -7,31 +7,86 @@
 {% block content %}
 <div class="container">
     <div class="row" style="padding-top: 25px; padding-left: 8px; padding-right:8px;">
-        <input class="form-control" style="padding-left: 10px; padding-right:10px;">
+        <input class="form-control" value="Enter your shit" 
+                style="padding-left: 10px; padding-right:10px;"
+                id='display'
+                onchange="populateDisplay(this)">
     </div>
     <div class="row" style="padding-top: 25px;">
-        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">7</button>
-        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">8</button>
-        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">9</button>
-        <button class="col btn btn-primary btn-lg" style="margin: 5px;">x</button>
+        <button class="col btn btn-secondary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            value="7"
+            onclick="buttonPress(this.innerHTML)">7</button>
+        <button class="col btn btn-secondary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">8</button>
+        <button class="col btn btn-secondary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">9</button>
+        <button class="col btn btn-primary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">x</button>
     </div>
     <div class="row" style="padding-top: 25px;">
-        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">4</button>
-        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">5</button>
-        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">6</button>
-        <button class="col btn btn-primary btn-lg" style="margin: 5px;">-</button>
+        <button class="col btn btn-secondary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">4</button>
+        <button class="col btn btn-secondary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">5</button>
+        <button class="col btn btn-secondary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">6</button>
+        <button class="col btn btn-primary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">-</button>
     </div>
     <div class="row" style="padding-top: 25px;">
-        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">1</button>
-        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">2</button>
-        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">3</button>
-        <button class="col btn btn-primary btn-lg" style="margin: 5px;">+</button>
+        <button class="col btn btn-secondary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">1</button>
+        <button class="col btn btn-secondary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">2</button>
+        <button class="col btn btn-secondary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">3</button>
+        <button class="col btn btn-primary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">+</button>
     </div>
     <div class="row" style="padding-top : 25px;">
-        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">,</button>
-        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">0</button>
-        <button class="col btn btn-secondary btn-lg" style="margin: 5px;">.</button>
-        <button class="col btn btn-primary btn-lg" style="margin: 5px;">=</button>
+        <button class="col btn btn-secondary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">,</button>
+        <button class="col btn btn-secondary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">0</button>
+        <button class="col btn btn-secondary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="buttonPress(this.innerHTML)">.</button>
+        <button class="col btn btn-primary btn-lg" 
+            style="margin: 5px; height: 100px;"
+            onclick="enter(this.innerHTML)">=</button>
     </div>
 </div>
+
+<script>    
+    var computation = "";
+    function buttonPress(num) {
+        computation += num;
+        document.getElementById('display').value = computation;
+    }
+
+    function enter() {
+        for(i=0; i<computation.length; i++)
+            console.log(computation[i])
+    }
+
+    function populateDisplay() {
+        computation = document.getElementById("display").value;
+        document.getElementById('display').value = computation;
+    }
+</script>
+
 {% endblock %}

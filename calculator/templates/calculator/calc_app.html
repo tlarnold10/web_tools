@@ -81,17 +81,38 @@
     function enter() {
         var string_number = "";
         var num1 = 0;
+        var operator = "";
+        computation = computation.replace(/\s/g,'');
+        computation = computation.replace(/,/g, '');
         var num2 = 0;
-        for(i=0; i<computation.length; i++)
+        for(i=0; i<computation.length; i++) {
             if(Number.isInteger(parseInt(computation[i]))) {
                 string_number += computation[i];
+            }
+            else if (computation[i].includes('x')) {
+                operator = computation[i]
+                num1 = parseInt(string_number);
+                string_number = "";
+            }
+            else if (computation[i].includes('+')) {
+                operator = computation[i]
+                num1 = parseInt(string_number);
+                string_number = "";
+            }
+            else if (computation[i].includes('-')) {
+                operator = computation[i]
+                num1 = parseInt(string_number);
+                string_number = "";
             }
             else {
                 num1 = parseInt(string_number);
                 string_number = "";
             }
-            console.log(string_number);
             console.log(num1);
+            console.log(operator);
+        }
+        num2 = parseInt(string_number);
+        console.log(num2);  
     }
 
     function populateDisplay() {

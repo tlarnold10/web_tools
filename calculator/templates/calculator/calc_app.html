@@ -67,7 +67,8 @@
             onclick="buttonPress(this.innerHTML)">.</button>
         <button class="col btn btn-primary btn-lg" 
             style="margin: 5px; height: 100px;"
-            onclick="enter(this.innerHTML)">=</button>
+            onclick="enter(this.innerHTML)"
+            id="EnterButton">=</button>
     </div>
 </div>
 
@@ -104,21 +105,49 @@
                 num1 = parseInt(string_number);
                 string_number = "";
             }
+            else if (computation[i].includes('/')) {
+                operator = computation[i]
+                num1 = parseInt(string_number);
+                string_number = "";
+            }
             else {
                 num1 = parseInt(string_number);
                 string_number = "";
             }
-            console.log(num1);
-            console.log(operator);
         }
         num2 = parseInt(string_number);
-        console.log(num2);  
+        console.log(num1);
+        console.log(operator);
+        console.log(num2);
+        var output = 0;
+        switch(operator) {
+            case '+':
+                output = num1+num2;
+                break;
+            case '-':
+                output = num1-num2;
+                break;
+            case 'x':
+                output = num1*num2;
+                break;
+            case '/':
+                output = num1/num2;
+                break;
+        }
+        console.log(output);
+        document.getElementById('display').value = output;
     }
 
     function populateDisplay() {
         computation = document.getElementById("display").value;
         document.getElementById('display').value = computation;
     }
+    document.getElementById('display').addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            document.getElementById("EnterButton").click();
+        }
+    });
 </script>
 
 {% endblock %}

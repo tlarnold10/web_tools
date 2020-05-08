@@ -1,10 +1,10 @@
 
 from django.conf.urls import url
 
-from .views import EmotionList
+from .views import CalculatorApp
 
 urlpatterns = [
 	url(r'^$',
-		EmotionList.as_view(),
+		CalculatorApp.as_view(),
 		name='emotion_list'),
 ]

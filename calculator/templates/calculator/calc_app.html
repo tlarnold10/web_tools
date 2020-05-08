@@ -10,7 +10,8 @@
         <input class="form-control" value="Enter your shit" 
                 style="padding-left: 10px; padding-right:10px;"
                 id='display'
-                onchange="populateDisplay(this)">
+                onchange="populateDisplay(this)"
+                onclick="removeText(this)">
     </div>
     <div class="row" style="padding-top: 25px;">
         <button class="col btn btn-secondary btn-lg" 
@@ -147,7 +148,13 @@
             event.preventDefault();
             document.getElementById("EnterButton").click();
         }
-    });
+    })
+    function removeText() {
+        var current_text = document.getElementById('display').value;
+        if(current_text == 'Enter your shit') {
+            document.getElementById('display').value = '';
+        }
+    };
 </script>
 
 {% endblock %}

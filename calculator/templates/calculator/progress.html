@@ -1,0 +1,21 @@
+{% extends parent_template|default:"base.html" %}
+
+{% block title %}
+{{ block.super }} - Progress Bar
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Progress bar testing</h1>
+    <div class="row">
+        <progress class="progress is-danger" id="progress_bar" value="5" max="100"></progress>
+    </div>
+</div>
+
+<script>
+    finished = {{ progress }}
+    total = {{ total }}
+    document.getElementById("progress_bar").max = total
+    document.getElementById("progress_bar").value = finished
+</script>
+{% endblock %}

@@ -28,12 +28,15 @@
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="{% url 'calculator'%}">Calculator</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="{% url 'prgress_bar'%}">Progress Bar</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'covid'%}">Covid Data</a>
+            </li>
+            <!--<li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Dropdown link
               </a>
@@ -42,7 +45,7 @@
                 <a class="dropdown-item" href="#">Another action</a>
                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
-            </li>
+            </li> -->
           </ul>
         </div>
       </nav>

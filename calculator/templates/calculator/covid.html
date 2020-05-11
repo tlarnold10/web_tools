@@ -6,6 +6,33 @@
 
 {% block content %}
     <div class="container">
-        {{ data }}
+        <br>
+        <table class="table">
+            <thead class="thead">
+                {% for header in data.columns %}
+                <th class="th">
+                    {{ header }}
+                </th>
+                {% endfor %}
+            </thead>
+            <tbody class="tbody">
+                {% for row, index in data.iterrows %}
+                <tr class="tr">
+                    <td class="td">
+                        {{ index.date }}
+                    </td>
+                    <td class="td">
+                        {{ index.state }}
+                    </td>
+                    <td class="td">
+                        {{ index.positive }}
+                    </td>
+                    <td class="td">
+                        {{ index.negative }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 {% endblock %}

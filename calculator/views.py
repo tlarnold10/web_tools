@@ -27,8 +27,6 @@ class covidData(View):
 	json_data = response.json()
 	template_name = 'calculator/covid.html'
 	covid_df = pd.DataFrame(json_data)
-	pdb.set_trace()
-	context = {'data':covid_df}
-	
+	context = {'data':covid_df.head(56)}
 	def get(self, request):
 		return render(request, self.template_name, self.context)

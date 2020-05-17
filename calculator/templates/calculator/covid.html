@@ -10,18 +10,14 @@
         <!-- Example single danger button -->
         <br>
         <div class="btn-group">
-            <button type="button" class="btn btn-danger dropdown-toggle" 
-                    data-toggle="dropdown" aria-haspopup="true" 
-                    aria-expanded="false"
-                    onChange="myfunction(this)">
-                Select State
-            </button>
-            <div class="dropdown-menu" id="state-select">
+            <select type="select" id="select-state" class="btn btn-danger dropdown-toggle"
+                    onchange="myfunction()">
                 {% for row, index in data.iterrows %}
-                    <a class="dropdown-item" value= "{{ index.state }}" 
-                        href="#">{{ index.state }}</a>
+                <option class="dropdown-item" value= "{{ index.state }}" >
+                    {{ index.state }}
+                </option>
                 {% endfor %}
-            </div>
+            </select>
         </div>
         <br>
         <br>
@@ -126,9 +122,8 @@
     </div>
     <script>
         function myfunction() {
-            document.getElementById("select-state").value = this.value;
-            console.log(state);
-            console.log("test");
+            var state_select = document.getElementById("select-state").value;
+            console.log(state_select);
         }
     </script>
 {% endblock %}

@@ -13,9 +13,9 @@
             <select type="select" id="select-state" class="btn btn-danger dropdown-toggle" 
                     onchange="filterState()">
                 <option class="dropdown-item" value="ALL">ALL</option>
-                {% for row, index in data.iterrows %}
-                <option class="dropdown-item" value= "{{ index.state }}" >
-                    {{ index.state }}
+                {% for state in states %}
+                <option class="dropdown-item" value= "{{ state }}" >
+                    {{ state }}
                 </option>
                 {% endfor %}
             </select>
@@ -121,30 +121,4 @@
         </table>
         </div>
     </div>
-    <script>
-        function filterState() {
-            // Declare variables
-            var input, state_select, table, tr, td, i, txtValue;
-            input = document.getElementById("myInput");
-            state_select = document.getElementById("select-state").value;
-            console.log(state_select);
-            table = document.getElementById("myTable");
-            tr = table.getElementsByTagName("tr");
-
-            // Loop through all table rows, and hide those who don't match the search query
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (state_select == "ALL") {
-                        tr[i].style.display = "";
-                    } else if (txtValue.toUpperCase().indexOf(state_select) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
 {% endblock %}
